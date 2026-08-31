@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#111111">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<title>Random Raga Generator</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#f3f3f3;color:#111}
+.app{width:min(560px,100%);background:#fff;border-radius:28px;padding:32px 24px;box-shadow:0 12px 40px rgba(0,0,0,.10);text-align:center}
+h1{margin:0 0 8px;font-size:30px}.sub{margin:0 0 28px;color:#666}
+.raga{min-height:150px;display:flex;align-items:center;justify-content:center;padding:25px;border-radius:22px;background:#111;color:#fff;font-size:clamp(30px,8vw,52px);font-weight:700;line-height:1.1;margin-bottom:22px}
+button{width:100%;border:0;border-radius:16px;padding:17px 20px;font-size:18px;font-weight:700;cursor:pointer;background:#111;color:#fff;transition:transform .08s ease}
+button:active{transform:scale(.98)}
+.secondary{margin-top:12px;background:#e9e9e9;color:#111;font-size:15px;padding:13px}
+.count{margin-top:18px;color:#777;font-size:14px}
+#list{display:none;margin-top:20px;text-align:left;max-height:320px;overflow:auto;padding:15px 18px;background:#f5f5f5;border-radius:16px;columns:2;column-gap:28px}
+#list div{padding:4px 0;break-inside:avoid;font-size:14px}
+@media(max-width:430px){#list{columns:1}}
+</style>
+</head>
+<body>
+<main class="app">
+<h1>Random Raga</h1>
+<p class="sub">Pick a raga. Start playing.</p>
+<div class="raga" id="raga">—</div>
+<button id="randomBtn">🎲 Random Raga</button>
+<button class="secondary" id="listBtn">Show Raga List</button>
+<div class="count" id="count"></div>
+<div id="list"></div>
+</main>
+<script>
+const ragas = [
+
+"Abhogi",
+"Adana",
+"Ahir Bhairav",
+"Alahiya Bilawal",
+"Asavari",
+"Bageshree",
+"Bahar",
+"Barwa",
+"Basant",
+"Basant Bahar",
+"Basant Mukhari",
+"Bhairav",
+"Bhairavi",
+"Bhatiyar",
+"Bhimpalashi",
+"Bhoopali",
+"Bihag",
+"Bihagda",
+"Bilaskhani Todi",
+"Brindavani Sarang",
+"Chandrakauns",
+"Charukeshi",
+"Chhayanat",
+"Darbari Kanada",
+"Desh",
+"Deshi",
+"Deshkar",
+"Durga",
+"Gara",
+"Gaud Sarang",
+"Gaur Malhar",
+"Gawati",
+"Gorakh Kalyan",
+"Gujri Todi",
+"Gunkeli",
+"Hameer",
+"Hanswadhwani",
+"Hindol Bahar",
+"Jaijawanti",
+"Jaunpuri",
+"Jhinjhoti",
+"Jog",
+"Jogiya",
+"Jogkauns",
+"Kafi",
+"Kafi Kanada",
+"Kalavati",
+"Kamod",
+"Kaunsi Kanada",
+"Kaunsidhwani",
+"Kedar",
+"Khamaj",
+"Komal Risabh Asavari",
+"Lalit",
+"Maand",
+"Maand Bhairav",
+"Madhuvanti",
+"Malkauns",
+"Marubihag",
+"Marwa",
+"Megh",
+"Miyan ki Malhar",
+"Miyan ki Todi",
+"Multani",
+"Nand",
+"Nat Behag",
+"Nat Bhairav",
+"Nat Malhar",
+"Nayaki Kanada",
+"Paraj",
+"Patdeep",
+"Pilu",
+"Poorvi",
+"Puriya",
+"Puriya Dhanashree",
+"Puriya Kalyan",
+"Rageshree",
+"Ramdasi Malhar",
+"Ramkeli",
+"Sahana",
+"Saraswati",
+"Shankara",
+"Shivranjani",
+"Shree",
+"Shyam Kalyan",
+"Sohini",
+"Suddha Kalyan",
+"Suddha Sarang",
+"Suha",
+"Surdasi Malhar",
+"Tilak Kamod",
+"Tilang",
+"Vachaspati",
+"Yaman",
+"Yaman Kalyan"
+];
+
+let lastIndex=-1;
+function pickRaga(){
+  let i;
+  do{i=Math.floor(Math.random()*ragas.length)}while(ragas.length>1&&i===lastIndex);
+  lastIndex=i;
+  document.getElementById("raga").textContent=ragas[i];
+}
+document.getElementById("randomBtn").addEventListener("click",pickRaga);
+document.getElementById("listBtn").addEventListener("click",()=>{
+  const list=document.getElementById("list"),btn=document.getElementById("listBtn");
+  if(list.style.display==="block"){list.style.display="none";btn.textContent="Show Raga List";}
+  else{list.innerHTML=ragas.map((r,i)=>`<div>${i+1}. ${r}</div>`).join("");list.style.display="block";btn.textContent="Hide Raga List";}
+});
+document.getElementById("count").textContent=`${ragas.length} ragas • works offline`;
+</script>
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => navigator.serviceWorker.register("service-worker.js"));
+}
+</script>
+</body>
+</html>
