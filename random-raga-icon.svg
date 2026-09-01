@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#061a2c"/>
+      <stop offset="1" stop-color="#00101e"/>
+    </linearGradient>
+    <linearGradient id="teal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#75e0ce"/>
+      <stop offset="1" stop-color="#159da2"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffe39a"/>
+      <stop offset=".5" stop-color="#e8b94e"/>
+      <stop offset="1" stop-color="#d58b28"/>
+    </linearGradient>
+    <linearGradient id="ivory" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff9e8"/>
+      <stop offset="1" stop-color="#d8d0b9"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-opacity=".45"/>
+    </filter>
+  </defs>
+
+  <rect width="1024" height="1024" rx="190" fill="url(#bg)"/>
+
+  <!-- outer musical arc -->
+  <path d="M170 690 A355 355 0 0 1 405 170" fill="none" stroke="url(#teal)" stroke-width="18" stroke-linecap="round"/>
+  <path d="M619 170 A355 355 0 0 1 854 690" fill="none" stroke="url(#gold)" stroke-width="18" stroke-linecap="round"/>
+
+  <!-- decorative inner arcs -->
+  <path d="M290 475 C215 390 270 290 365 260" fill="none" stroke="#4fd0c4" stroke-width="9" stroke-linecap="round"/>
+  <path d="M734 475 C809 390 754 290 659 260" fill="none" stroke="#e9bc55" stroke-width="9" stroke-linecap="round"/>
+
+  <!-- flowing musical lines -->
+  <g fill="none" stroke-linecap="round">
+    <path d="M195 555 C270 510 320 545 385 510" stroke="#55cfc4" stroke-width="8"/>
+    <path d="M190 580 C265 535 320 570 382 535" stroke="#55cfc4" stroke-width="6"/>
+    <path d="M192 607 C265 560 320 595 375 562" stroke="#55cfc4" stroke-width="5"/>
+    <path d="M829 555 C754 510 704 545 639 510" stroke="#e8b84e" stroke-width="8"/>
+    <path d="M834 580 C759 535 704 570 642 535" stroke="#e8b84e" stroke-width="6"/>
+    <path d="M832 607 C759 560 704 595 649 562" stroke="#e8b84e" stroke-width="5"/>
+  </g>
+
+  <!-- decorative notes -->
+  <g fill="url(#teal)">
+    <circle cx="270" cy="345" r="24"/>
+    <path d="M300 570v-108c0-20 18-35 38-31 23 4 39 25 31 46-6 17-26 25-43 18v91z"/>
+  </g>
+  <g fill="url(#gold)">
+    <circle cx="754" cy="345" r="24"/>
+    <path d="M724 570v-108c0-20-18-35-38-31-23 4-39 25-31 46 6 17 26 25 43 18v91z"/>
+  </g>
+
+  <!-- central tanpura / raga emblem -->
+  <g filter="url(#shadow)">
+    <!-- tuning head -->
+    <rect x="480" y="112" width="64" height="210" rx="26" fill="url(#ivory)"/>
+    <ellipse cx="512" cy="108" rx="40" ry="28" fill="url(#ivory)"/>
+    <circle cx="452" cy="142" r="27" fill="url(#ivory)"/>
+    <circle cx="572" cy="142" r="27" fill="url(#ivory)"/>
+    <circle cx="452" cy="205" r="27" fill="url(#ivory)"/>
+    <circle cx="572" cy="205" r="27" fill="url(#ivory)"/>
+
+    <!-- long body -->
+    <path d="M485 220 L485 610
+             C485 650 460 673 426 698
+             C375 735 340 802 365 866
+             C388 925 451 955 512 955
+             C573 955 636 925 659 866
+             C684 802 649 735 598 698
+             C564 673 539 650 539 610
+             L539 220 Z"
+          fill="url(#ivory)"/>
+
+    <!-- body inset -->
+    <path d="M475 720 C425 748 400 798 410 850
+             C421 902 467 928 512 932
+             C557 928 603 902 614 850
+             C624 798 599 748 549 720"
+          fill="none" stroke="#a9a28f" stroke-width="5"/>
+
+    <!-- strings -->
+    <g stroke="#45625d" stroke-width="5">
+      <line x1="495" y1="205" x2="495" y2="875"/>
+      <line x1="505" y1="205" x2="505" y2="875"/>
+      <line x1="515" y1="205" x2="515" y2="875"/>
+      <line x1="525" y1="205" x2="525" y2="875"/>
+    </g>
+
+    <!-- bridge -->
+    <rect x="467" y="807" width="90" height="25" rx="6" fill="#13202a"/>
+    <rect x="478" y="831" width="68" height="16" rx="5" fill="#13202a"/>
+  </g>
+
+  <!-- title -->
+  <text x="512" y="930" text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="62" font-weight="600" fill="#fff6df">Random Raga</text>
+  <text x="512" y="980" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="22" letter-spacing="10"
+        fill="#68cfc2">RAGA GENERATOR</text>
+  <circle cx="327" cy="973" r="6" fill="#e5a63e"/>
+  <circle cx="697" cy="973" r="6" fill="#e5a63e"/>
+</svg>
